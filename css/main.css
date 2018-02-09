@@ -1,0 +1,11 @@
+.todo{
+    border: 1px solid red;
+    min-height:400px;
+    max-width: 500px;
+}
+
+.completed{
+    border: 1px solid green;
+    min-height:400px;
+    max-width: 500px;
+}
