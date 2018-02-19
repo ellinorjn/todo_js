@@ -1,7 +1,8 @@
 const createNewTodo = document.getElementById('createNewTodo');
-const containerForInputField = document.getElementById('containerForInputField');
+const addNewTodo = document.getElementById('addNewTodo');
+const todoContent = document.getElementById('todoContent');
 
-createNewTodo.addEventListener('click', function(){
-    const input = document.createElement('input')
-    containerForInputField.appendChild(input);
-})
+addNewTodo.addEventListener('click', function(){
+    console.log(createNewTodo.value);
+});
+
