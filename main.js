@@ -4,15 +4,15 @@ const buttonDeleteAllTodos = document.getElementById('buttonDeleteAllTodos');
 
 //creates a new li-element from the inputfield
 function newListItem() {
+    const li = document.createElement("li");
+    li.className = "lista"
+    const inputText = document.getElementById("inputNewTodo").value;
+    const theTodo = document.createTextNode(inputText);
+    li.appendChild(theTodo);
     //Checks if the inputfield is empty
-    if (inputNewTodo === "") {
+    if (inputText === "") {
         alert("You can't add an empty todo, please write a todo");
-    } else {
-        const li = document.createElement("li");
-        li.className = "lista"
-        const inputText = document.getElementById("inputNewTodo").value;
-        const theTodo = document.createTextNode(inputText);
-        li.appendChild(theTodo);
+    }else {
         document.getElementById("ulAllTodos").appendChild(li);
         deleteTodo(li)
         completeTodo(li)
@@ -32,20 +32,34 @@ function deleteTodo(li) {
         removeTodo.removeChild(li)
     });
 }
+
 function completeTodo(li){
      const buttonCompletedTodo = document.createElement("button");
         buttonCompletedTodo.className = "buttonCompletedTodo"
         const textButtonCompleted = document.createTextNode("Completed!")
         buttonCompletedTodo.appendChild(textButtonCompleted)
         li.appendChild(buttonCompletedTodo)
+        //
+        const completed = document.getElementById('ulCompletedTodos')
+        buttonCompletedTodo.addEventListener('click', function () {
+        var removeTodo = document.getElementById('ulAllTodos')
+        removeTodo.removeChild(li)
+        completed.appendChild(li)
+    });      
 }
-
-
 
 //call newListItem function when clicking on the add button
 buttonAddNewTodo.addEventListener('click', function(){
     newListItem();
 })
+
+inputNewTodo.addEventListener('keyup',function(e){
+    //Key code for enter === 13
+    //If you press enter then the newListItem function will run
+    if (e.keyCode === 13) {
+    newListItem();
+  }
+});
 
 /*Add an eventlistener to the delete button
 and remove all the li's inside the ul when clicking*/ 

@@ -1,11 +1,94 @@
+body{
+    background: #ffd1dc;
+}
+
+main{
+    background: white;
+    max-width: 400px;
+    margin: 0px auto;
+}
 #todoContent{
-    border: 1px solid red;
-    min-height:400px;
-    max-width: 500px;
+    min-height:300px;
+}
+
+h2{
+    text-align:center;
+    color: grey;
+    padding-top: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2em;
+}
+
+.input{
+    text-align:center;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    text-align:center;
+    color: grey;
+    opacity: 0.5; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: grey;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: grey;
+}
+
+#inputNewTodo{
+    height: 30px;
+}
+
+li{
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    color: #606060;
+}
+
+.buttonDeleteTodo , .buttonCompletedTodo{
+    float: right;
+}
+.buttonCompletedTodo{
+    border: 1px solid #55b25d;
+    color: green;
+    background-color: white;
+}
+
+.buttonCompletedTodo:hover{
+    background-color:#55b25d;
+    color:white;
+    transition-duration: 0.5s;
+}
+.buttonDeleteTodo{
+    margin-right: 30px;
+    margin-left: 10px;
+    border: 1px solid #ff5454;
+    background-color:white;
+    color:red;
+}
+
+.buttonDeleteTodo:hover{
+    background-color:#ff5454;
+    color:white;
+    transition-duration: 0.5s;
+}
+
+.deleteAllTodos{
+    text-align:center;
+}
+
+hr{
+    width: 80%;
+    text-align: center;
+    border: 0;
+    height: 1px;
+    background: pink;
+    background-image: linear-gradient(to right, pink, hotpink, pink);
 }
 
 #completedTodos{
-    border: 1px solid green;
-    min-height:400px;
-    max-width: 500px;
+    min-height:300px;
+  
 }
