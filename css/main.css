@@ -1,3 +1,7 @@
+
+
+
+
 body{
     background: #ffd1dc;
 }
@@ -7,6 +11,8 @@ main{
     max-width: 400px;
     margin: 0px auto;
 }
+
+/* Todo section */
 #todoContent{
     min-height:300px;
 }
@@ -21,6 +27,7 @@ h2{
 
 .input{
     text-align:center;
+    font-family: 'Raleway', sans-serif;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -39,13 +46,31 @@ h2{
 
 #inputNewTodo{
     height: 30px;
+    font-family:  'Raleway', sans-serif;
+    color: grey;
 }
+
+#inputNewTodo:focus{
+    outline: 2px solid #ffd1dc;
+}
+
+#buttonAddNewTodo{
+    font-family: 'Raleway', sans-serif;
+    color: grey;
+    margin-top: 15px;
+    background-color: #ffd1dc;
+    border: 1px solid #ffd1dc;
+    border-radius: 3px;
+}
+
 
 li{
     padding: 10px;
     font-family: 'Raleway', sans-serif;
     color: #606060;
 }
+
+/* Delete & Complete buttons */
 
 .buttonDeleteTodo , .buttonCompletedTodo{
     float: right;
@@ -69,16 +94,27 @@ li{
     color:red;
 }
 
-.buttonDeleteTodo:hover{
+.buttonDeleteTodo:hover ,
+.deleteAllTodos button:hover{
     background-color:#ff5454;
     color:white;
     transition-duration: 0.5s;
+    border: solid #ff5454;
 }
 
 .deleteAllTodos{
     text-align:center;
 }
 
+.deleteAllTodos button{
+    color: grey;
+    font-weight: 700;
+    background-color:white;
+    border: 2px solid grey;
+}
+
+
+/* Completed section */
 hr{
     width: 80%;
     text-align: center;
@@ -92,3 +128,18 @@ hr{
     min-height:300px;
   
 }
+
+/* Animation 
+li{
+  opacity: 0;
+}
+
+.fadeIn {
+    -webkit-animation: fadeIn 400ms;
+    animation: fadeIn 400ms;
+    opacity: 1;
+ }
+*/
+
+
+
