@@ -29,11 +29,11 @@ function deleteTodo(li) {
     li.appendChild(buttonDeleteTodo)
     //Gets my ul and removes the child when clicking on delete
     buttonDeleteTodo.addEventListener('click', function () {
-        var removeTodo = document.getElementById('ulAllTodos')
+        const listItem = this.parentNode;
         //Animate the todo when clicking on delete
         li.classList.add('fadeOutDeletedTodo')
         setTimeout(function () {
-            (removeTodo.removeChild(li));
+            (listItem.parentElement.removeChild(listItem));
         }, 300);
     });
 };
@@ -52,6 +52,9 @@ function completeTodo(li) {
     //
     const completed = document.getElementById('ulCompletedTodos')
     buttonCompletedTodo.addEventListener('click', function () {
+        //only show the completed list if there's any completed todos to list
+        const div = document.getElementById("completedTodos")
+        div.style.display="block";
         var removeTodo = document.getElementById('ulAllTodos')
         removeTodo.removeChild(li)
         //Removes the completed button when clicking on it
@@ -81,7 +84,5 @@ buttonDeleteAllTodos.addEventListener('click', function () {
     todo.classList.add('fadeOutDeletedTodo')
         setTimeout(function () {
             while (todo.firstChild) todo.removeChild(todo.firstChild);
-        }, 300);
-    
-    
+        }, 300);   
 });
