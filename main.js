@@ -5,11 +5,11 @@ const buttonDeleteAllTodos = document.getElementById('buttonDeleteAllTodos');
 //creates a new li-element from the inputfield
 function newListItem() {
     const li = document.createElement("li");
-    li.className = "lista"
+    //li.className = "lista"
     const inputText = document.getElementById("inputNewTodo").value;
     const theTodo = document.createTextNode(inputText);
-    /* FÖRSÖK TILL ANIMATION NYH 
-    li.classList.add('fadeIn');*/
+    // Animation
+    li.classList.add('fadeIn');
     li.appendChild(theTodo);
     //Checks if the inputfield is empty
     if (inputText === "") {
@@ -18,6 +18,7 @@ function newListItem() {
         document.getElementById("ulAllTodos").appendChild(li);
         deleteTodo(li)
         completeTodo(li)
+        
     }
 }
 
@@ -53,7 +54,9 @@ function completeTodo(li) {
     };
 
 //call newListItem function when clicking on the add button
-buttonAddNewTodo.addEventListener('click', newListItem);
+buttonAddNewTodo.addEventListener('click', function(){
+    newListItem();
+});
 
 inputNewTodo.addEventListener('keyup', function (e) {
     //Key code for enter === 13
