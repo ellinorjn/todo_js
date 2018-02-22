@@ -5,7 +5,6 @@ const buttonDeleteAllTodos = document.getElementById('buttonDeleteAllTodos');
 //creates a new li-element from the inputfield
 function newListItem() {
     const li = document.createElement("li");
-    //li.className = "lista"
     const inputText = document.getElementById("inputNewTodo").value;
     const theTodo = document.createTextNode(inputText);
     // Animation
@@ -14,12 +13,12 @@ function newListItem() {
     //Checks if the inputfield is empty
     if (inputText === "") {
         alert("You can't add an empty todo, please write a todo");
-    } else {
+    }else {
         document.getElementById("ulAllTodos").appendChild(li);
         deleteTodo(li)
         completeTodo(li)
     }
-    inputNewTodo.value = ""
+        inputNewTodo.value=""
 }
 
 function deleteTodo(li) {
@@ -28,7 +27,7 @@ function deleteTodo(li) {
     const textButtonDelete = document.createTextNode("Delete");
     buttonDeleteTodo.appendChild(textButtonDelete)
     li.appendChild(buttonDeleteTodo)
-    //Gets my ul and removes the child when clicking on delete
+    //Get the parent node of the button === li
     buttonDeleteTodo.addEventListener('click', function () {
         const listItem = this.parentNode;
         //Animate the todo when clicking on delete
@@ -39,18 +38,13 @@ function deleteTodo(li) {
     });
 };
 
-    /*
-    var removeCompletedtodo = document.getElementById('completedTodos')
-        removeCompletedtodo.removeChild(li)
-*/
-
 function completeTodo(li) {
+    //Create a new button so you can mark a todo as completed
     const buttonCompletedTodo = document.createElement("button");
     buttonCompletedTodo.className = "buttonCompletedTodo"
     const textButtonCompleted = document.createTextNode("Completed!")
     buttonCompletedTodo.appendChild(textButtonCompleted)
     li.appendChild(buttonCompletedTodo)
-    //
     const completed = document.getElementById('ulCompletedTodos')
     buttonCompletedTodo.addEventListener('click', function () {
         //only show the completed list if there's any completed todos to list
@@ -65,14 +59,15 @@ function completeTodo(li) {
         })
     };
 
-//call newListItem function when clicking on the add button
+/*call newListItem function when clicking on the add button
+so we can see the todo*/
 buttonAddNewTodo.addEventListener('click', function(){
     newListItem();
 });
 
 inputNewTodo.addEventListener('keyup', function (e) {
-    //Key code for enter === 13
-    //If you press enter then the newListItem function will run
+    /*Key code for enter === 13
+    If you press enter then the newListItem function will run*/
     if (e.keyCode === 13) {
         newListItem();
     }
