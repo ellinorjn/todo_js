@@ -14,11 +14,12 @@ function newListItem() {
     //Checks if the inputfield is empty
     if (inputText === "") {
         alert("You can't add an empty todo, please write a todo");
-    }else {
+    } else {
         document.getElementById("ulAllTodos").appendChild(li);
         deleteTodo(li)
         completeTodo(li)
     }
+    inputNewTodo.value = ""
 }
 
 function deleteTodo(li) {
@@ -81,8 +82,14 @@ inputNewTodo.addEventListener('keyup', function (e) {
 and remove all the li's inside the ul when clicking*/
 buttonDeleteAllTodos.addEventListener('click', function () {
     var todo = document.getElementById("ulAllTodos");
+    var completedTodo = document.getElementById("ulCompletedTodos");
     todo.classList.add('fadeOutDeletedTodo')
-        setTimeout(function () {
-            while (todo.firstChild) todo.removeChild(todo.firstChild);
-        }, 300);   
+    completedTodo.classList.add('fadeOutDeletedTodo')
+    setTimeout(function () {
+        while (todo.firstChild) todo.removeChild(todo.firstChild);
+    }, 300);
+
+    setTimeout(function () {
+        while (completedTodo.firstChild) completedTodo.removeChild(completedTodo.firstChild);
+    }, 300);
 });
