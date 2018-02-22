@@ -9,16 +9,15 @@ function newListItem() {
     const inputText = document.getElementById("inputNewTodo").value;
     const theTodo = document.createTextNode(inputText);
     // Animation
-    li.classList.add('fadeIn');
+    li.classList.add('fadeTodoIn');
     li.appendChild(theTodo);
     //Checks if the inputfield is empty
     if (inputText === "") {
         alert("You can't add an empty todo, please write a todo");
-    } else {
+    }else {
         document.getElementById("ulAllTodos").appendChild(li);
         deleteTodo(li)
         completeTodo(li)
-        
     }
 }
 
@@ -31,9 +30,18 @@ function deleteTodo(li) {
     //Gets my ul and removes the child when clicking on delete
     buttonDeleteTodo.addEventListener('click', function () {
         var removeTodo = document.getElementById('ulAllTodos')
-        removeTodo.removeChild(li)
+        //Animate the todo when clicking on delete
+        li.classList.add('fadeOutDeletedTodo')
+        setTimeout(function () {
+            (removeTodo.removeChild(li));
+        }, 300);
     });
-}
+};
+
+    /*
+    var removeCompletedtodo = document.getElementById('completedTodos')
+        removeCompletedtodo.removeChild(li)
+*/
 
 function completeTodo(li) {
     const buttonCompletedTodo = document.createElement("button");
@@ -70,5 +78,10 @@ inputNewTodo.addEventListener('keyup', function (e) {
 and remove all the li's inside the ul when clicking*/
 buttonDeleteAllTodos.addEventListener('click', function () {
     var todo = document.getElementById("ulAllTodos");
-    while (todo.firstChild) todo.removeChild(todo.firstChild);
+    todo.classList.add('fadeOutDeletedTodo')
+        setTimeout(function () {
+            while (todo.firstChild) todo.removeChild(todo.firstChild);
+        }, 300);
+    
+    
 });
